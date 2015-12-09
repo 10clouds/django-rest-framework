@@ -12,7 +12,7 @@ Let's take our current set of views, and refactor them into view sets.
 
 First of all let's refactor our `UserList` and `UserDetail` views into a single `UserViewSet`.  We can remove the two views, and replace them with a single class:
 
-    from rest_framework import viewsets
+    from rest33 import viewsets
 
     class UserViewSet(viewsets.ReadOnlyModelViewSet):
         """
@@ -25,7 +25,7 @@ Here we've used the `ReadOnlyModelViewSet` class to automatically provide the de
 
 Next we're going to replace the `SnippetList`, `SnippetDetail` and `SnippetHighlight` view classes.  We can remove the three views, and again replace them with a single class.
 
-    from rest_framework.decorators import detail_route
+    from rest33.decorators import detail_route
 
     class SnippetViewSet(viewsets.ModelViewSet):
         """
@@ -63,7 +63,7 @@ To see what's going on under the hood let's first explicitly create a set of vie
 In the `urls.py` file we bind our `ViewSet` classes into a set of concrete views.
 
     from snippets.views import SnippetViewSet, UserViewSet, api_root
-    from rest_framework import renderers
+    from rest33 import renderers
 
     snippet_list = SnippetViewSet.as_view({
         'get': 'list',
@@ -106,7 +106,7 @@ Here's our re-wired `urls.py` file.
 
     from django.conf.urls import url, include
     from snippets import views
-    from rest_framework.routers import DefaultRouter
+    from rest33.routers import DefaultRouter
 
     # Create a router and register our viewsets with it.
     router = DefaultRouter()
@@ -117,7 +117,7 @@ Here's our re-wired `urls.py` file.
     # Additionally, we include the login URLs for the browsable API.
     urlpatterns = [
         url(r'^', include(router.urls)),
-        url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+        url(r'^api-auth/', include('rest33.urls', namespace='rest33'))
     ]
 
 Registering the viewsets with the router is similar to providing a urlpattern.  We include two arguments - the URL prefix for the views, and the viewset itself.

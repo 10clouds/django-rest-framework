@@ -4,12 +4,12 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.test import TestCase
 
-from rest_framework import (
+from rest33 import (
     exceptions, metadata, serializers, status, versioning, views
 )
-from rest_framework.renderers import BrowsableAPIRenderer
-from rest_framework.request import Request
-from rest_framework.test import APIRequestFactory
+from rest33.renderers import BrowsableAPIRenderer
+from rest33.request import Request
+from rest33.test import APIRequestFactory
 
 request = Request(APIRequestFactory().options('/'))
 

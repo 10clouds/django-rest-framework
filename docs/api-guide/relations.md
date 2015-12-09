@@ -12,7 +12,7 @@ Relational fields are used to represent model relationships.  They can be applie
 
 ---
 
-**Note:** The relational fields are declared in `relations.py`, but by convention you should import them from the `serializers` module, using `from rest_framework import serializers` and refer to fields as `serializers.<FieldName>`.
+**Note:** The relational fields are declared in `relations.py`, but by convention you should import them from the `serializers` module, using `from rest33 import serializers` and refer to fields as `serializers.<FieldName>`.
 
 ---
 
@@ -394,8 +394,8 @@ This cannot be represented with the default implementation, which accepts only a
 
 In this case we'd need to override `HyperlinkedRelatedField` to get the behavior we want:
 
-    from rest_framework import serializers
-    from rest_framework.reverse import reverse
+    from rest33 import serializers
+    from rest33.reverse import reverse
 
     class CustomerHyperlink(serializers.HyperlinkedRelatedField):
         # We define these as class attributes, so we don't need to pass them as arguments.

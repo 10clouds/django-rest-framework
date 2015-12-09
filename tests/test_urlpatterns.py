@@ -6,8 +6,8 @@ from django.conf.urls import include, url
 from django.core import urlresolvers
 from django.test import TestCase
 
-from rest_framework.test import APIRequestFactory
-from rest_framework.urlpatterns import format_suffix_patterns
+from rest33.test import APIRequestFactory
+from rest33.urlpatterns import format_suffix_patterns
 
 # A container class for test paths for the test case
 URLTestPath = namedtuple('URLTestPath', ['path', 'args', 'kwargs'])

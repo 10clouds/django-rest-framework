@@ -106,7 +106,7 @@ The following template should be used for the description of the issue, and serv
 
     - [ ] Create pull request for [release notes](https://github.com/tomchristie/django-rest-framework/blob/master/docs/topics/release-notes.md) based on the [*.*.* milestone](https://github.com/tomchristie/django-rest-framework/milestones/***).
     - [ ] Update the translations from [transifex](http://www.django-rest-framework.org/topics/project-management/#translations).
-    - [ ] Ensure the pull request increments the version to `*.*.*` in [`restframework/__init__.py`](https://github.com/tomchristie/django-rest-framework/blob/master/rest_framework/__init__.py).
+    - [ ] Ensure the pull request increments the version to `*.*.*` in [`restframework/__init__.py`](https://github.com/tomchristie/django-rest-framework/blob/master/rest33/__init__.py).
     - [ ] Confirm with @tomchristie that release is finalized and ready to go.
     - [ ] Ensure that release date is included in pull request.
     - [ ] Merge the release pull request.
@@ -146,7 +146,7 @@ To use it you'll need a login to Transifex which has a password, and you'll need
 When any user visible strings are changed, they should be uploaded to Transifex so that the translators can start to translate them. To do this, just run:
 
     # 1. Update the source django.po file, which is the US English version.
-    cd rest_framework
+    cd rest33
     django-admin.py makemessages -l en_US
     # 2. Push the source django.po file to Transifex.
     cd ..
@@ -166,7 +166,7 @@ When a translator has finished translating their work needs to be downloaded fro
 
     # 3. Pull the translated django.po files from Transifex.
     tx pull -a
-    cd rest_framework
+    cd rest33
     # 4. Compile the binary .mo files for all supported languages.
     django-admin.py compilemessages
 

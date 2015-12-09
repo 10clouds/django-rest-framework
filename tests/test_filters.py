@@ -12,9 +12,9 @@ from django.test.utils import override_settings
 from django.utils.dateparse import parse_date
 from django.utils.six.moves import reload_module
 
-from rest_framework import filters, generics, serializers, status
-from rest_framework.compat import django_filters
-from rest_framework.test import APIRequestFactory
+from rest33 import filters, generics, serializers, status
+from rest33.compat import django_filters
+from rest33.test import APIRequestFactory
 
 from .models import BaseFilterableItem, BasicModel, FilterableItem
 
@@ -425,7 +425,7 @@ class SearchFilterTests(TestCase):
         )
 
     def test_search_with_nonstandard_search_param(self):
-        with override_settings(REST_FRAMEWORK={'SEARCH_PARAM': 'query'}):
+        with override_settings(REST33={'SEARCH_PARAM': 'query'}):
             reload_module(filters)
 
             class SearchListView(generics.ListAPIView):
@@ -717,7 +717,7 @@ class OrderingFilterTests(TestCase):
         )
 
     def test_ordering_with_nonstandard_ordering_param(self):
-        with override_settings(REST_FRAMEWORK={'ORDERING_PARAM': 'order'}):
+        with override_settings(REST33={'ORDERING_PARAM': 'order'}):
             reload_module(filters)
 
             class OrderingListView(generics.ListAPIView):

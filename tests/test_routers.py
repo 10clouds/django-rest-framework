@@ -7,11 +7,11 @@ from django.core.exceptions import ImproperlyConfigured
 from django.db import models
 from django.test import TestCase
 
-from rest_framework import permissions, serializers, viewsets
-from rest_framework.decorators import detail_route, list_route
-from rest_framework.response import Response
-from rest_framework.routers import DefaultRouter, SimpleRouter
-from rest_framework.test import APIRequestFactory
+from rest33 import permissions, serializers, viewsets
+from rest33.decorators import detail_route, list_route
+from rest33.response import Response
+from rest33.routers import DefaultRouter, SimpleRouter
+from rest33.test import APIRequestFactory
 
 factory = APIRequestFactory()
 

@@ -16,7 +16,7 @@ Extends [Django's existing `RequestFactory` class][requestfactory].
 
 The `APIRequestFactory` class supports an almost identical API to Django's standard `RequestFactory` class.  This means that the standard `.get()`, `.post()`, `.put()`, `.patch()`, `.delete()`, `.head()` and `.options()` methods are all available.
 
-    from rest_framework.test import APIRequestFactory
+    from rest33.test import APIRequestFactory
 
     # Using the standard RequestFactory API to create a form POST request
     factory = APIRequestFactory()
@@ -65,7 +65,7 @@ When testing views directly using a request factory, it's often convenient to be
 
 To forcibly authenticate a request, use the `force_authenticate()` method.
 
-    from rest_framework.test import force_authenticate
+    from rest33.test import force_authenticate
 
     factory = APIRequestFactory()
     user = User.objects.get(username='olivia')
@@ -117,7 +117,7 @@ Extends [Django's existing `Client` class][client].
 
 The `APIClient` class supports the same request interface as Django's standard `Client` class.  This means the that standard `.get()`, `.post()`, `.put()`, `.patch()`, `.delete()`, `.head()` and `.options()` methods are all available.  For example:
 
-    from rest_framework.test import APIClient
+    from rest33.test import APIClient
 
     client = APIClient()
     client.post('/notes/', {'title': 'new idea'}, format='json')
@@ -145,8 +145,8 @@ The `login` method is appropriate for testing APIs that use session authenticati
 
 The `credentials` method can be used to set headers that will then be included on all subsequent requests by the test client.
 
-    from rest_framework.authtoken.models import Token
-    from rest_framework.test import APIClient
+    from rest33.authtoken.models import Token
+    from rest33.test import APIClient
 
     # Include an appropriate `Authorization:` header on all requests.
     token = Token.objects.get(user__username='lauren')
@@ -198,8 +198,8 @@ REST framework includes the following test case classes, that mirror the existin
 You can use any of REST framework's test case classes as you would for the regular Django test case classes.  The `self.client` attribute will be an `APIClient` instance.
 
     from django.core.urlresolvers import reverse
-    from rest_framework import status
-    from rest_framework.test import APITestCase
+    from rest33 import status
+    from rest33.test import APITestCase
     from myproject.apps.core.models import Account
 
     class AccountTests(APITestCase):
@@ -250,7 +250,7 @@ If you're testing views directly using `APIRequestFactory`, the responses that a
 
 The default format used to make test requests may be set using the `TEST_REQUEST_DEFAULT_FORMAT` setting key.  For example, to always use JSON for test requests by default instead of standard multipart form requests, set the following in your `settings.py` file:
 
-    REST_FRAMEWORK = {
+    REST33 = {
         ...
         'TEST_REQUEST_DEFAULT_FORMAT': 'json'
     }
@@ -261,12 +261,12 @@ If you need to test requests using something other than multipart or json reques
 
 For example, to add support for using `format='html'` in test requests, you might have something like this in your `settings.py` file.
 
-    REST_FRAMEWORK = {
+    REST33 = {
         ...
         'TEST_REQUEST_RENDERER_CLASSES': (
-            'rest_framework.renderers.MultiPartRenderer',
-            'rest_framework.renderers.JSONRenderer',
-            'rest_framework.renderers.TemplateHTMLRenderer'
+            'rest33.renderers.MultiPartRenderer',
+            'rest33.renderers.JSONRenderer',
+            'rest33.renderers.TemplateHTMLRenderer'
         )
     }
 

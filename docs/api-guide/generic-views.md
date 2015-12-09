@@ -19,8 +19,8 @@ Typically when using the generic views, you'll override the view, and set severa
 
     from django.contrib.auth.models import User
     from myapp.serializers import UserSerializer
-    from rest_framework import generics
-    from rest_framework.permissions import IsAdminUser
+    from rest33 import generics
+    from rest33.permissions import IsAdminUser
 
     class UserList(generics.ListCreateAPIView):
         queryset = User.objects.all()
@@ -78,7 +78,7 @@ The following attributes control the basic view behavior.
 
 The following attributes are used to control pagination when used with list views.
 
-* `pagination_class` - The pagination class that should be used when paginating list results. Defaults to the same value as the `DEFAULT_PAGINATION_CLASS` setting, which is `'rest_framework.pagination.PageNumberPagination'`.
+* `pagination_class` - The pagination class that should be used when paginating list results. Defaults to the same value as the `DEFAULT_PAGINATION_CLASS` setting, which is `'rest33.pagination.PageNumberPagination'`.
 
 Note that usage of the `paginate_by`, `paginate_by_param` and `page_kwarg` attributes are now pending deprecation. The `pagination_serializer_class` attribute and `DEFAULT_PAGINATION_SERIALIZER_CLASS` setting have been removed completely. Pagination settings should instead be controlled by overriding a pagination class and setting any configuration attributes there. See the pagination documentation for more details.
 
@@ -214,7 +214,7 @@ You won't typically need to override the following methods, although you might n
 
 The mixin classes provide the actions that are used to provide the basic view behavior.  Note that the mixin classes provide action methods rather than defining the handler methods, such as `.get()` and `.post()`, directly.  This allows for more flexible composition of behavior.
 
-The mixin classes can be imported from `rest_framework.mixins`.
+The mixin classes can be imported from `rest33.mixins`.
 
 ## ListModelMixin
 
@@ -260,7 +260,7 @@ If an object is deleted this returns a `204 No Content` response, otherwise it w
 
 The following classes are the concrete generic views.  If you're using generic views this is normally the level you'll be working at unless you need heavily customized behavior.
 
-The view classes can be imported from `rest_framework.generics`.
+The view classes can be imported from `rest33.generics`.
 
 ## CreateAPIView
 

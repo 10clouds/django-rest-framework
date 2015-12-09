@@ -9,7 +9,7 @@ API may stand for Application *Programming* Interface, but humans have to be abl
 
 ## URLs
 
-If you include fully-qualified URLs in your resource output, they will be 'urlized' and made clickable for easy browsing by humans.  The `rest_framework` package includes a [`reverse`][drfreverse] helper for this purpose.
+If you include fully-qualified URLs in your resource output, they will be 'urlized' and made clickable for easy browsing by humans.  The `rest33` package includes a [`reverse`][drfreverse] helper for this purpose.
 
 ## Formats
 
@@ -19,11 +19,11 @@ By default, the API will return the format specified by the headers, which in th
 
 The browsable API is built with [Twitter's Bootstrap][bootstrap] (v 2.1.1), making it easy to customize the look-and-feel.
 
-To customize the default style, create a template called `rest_framework/api.html` that extends from `rest_framework/base.html`.  For example:
+To customize the default style, create a template called `rest33/api.html` that extends from `rest33/base.html`.  For example:
 
-**templates/rest_framework/api.html**
+**templates/rest33/api.html**
 
-    {% extends "rest_framework/base.html" %}
+    {% extends "rest33/base.html" %}
 
     ...  # Override blocks with required customizations
 
@@ -41,7 +41,7 @@ You can also change the navbar variant, which by default is `navbar-inverse`, us
 
 Full example:
 
-    {% extends "rest_framework/base.html" %}
+    {% extends "rest33/base.html" %}
 
     {% block bootstrap_theme %}
         <link rel="stylesheet" href="http://bootswatch.com/flatly/bootstrap.min.css" type="text/css">
@@ -90,7 +90,7 @@ The browsable API makes use of the Bootstrap tooltips component.  Any element wi
 
 ### Login Template
 
-To add branding and customize the look-and-feel of the login template, create a template called `login.html` and add it to your project, eg: `templates/rest_framework/login.html`.  The template should extend from `rest_framework/login_base.html`.
+To add branding and customize the look-and-feel of the login template, create a template called `login.html` and add it to your project, eg: `templates/rest33/login.html`.  The template should extend from `rest33/login_base.html`.
 
 You can add your site name or branding by including the branding block:
 

@@ -22,8 +22,8 @@ Let's define a simple viewset that can be used to list or retrieve all the users
     from django.contrib.auth.models import User
     from django.shortcuts import get_object_or_404
     from myapps.serializers import UserSerializer
-    from rest_framework import viewsets
-    from rest_framework.response import Response
+    from rest33 import viewsets
+    from rest33.response import Response
 
     class UserViewSet(viewsets.ViewSet):
         """
@@ -48,7 +48,7 @@ If we need to, we can bind this viewset into two separate views, like so:
 Typically we wouldn't do this, but would instead register the viewset with a router, and allow the urlconf to be automatically generated.
 
     from myapp.views import UserViewSet
-    from rest_framework.routers import DefaultRouter
+    from rest33.routers import DefaultRouter
 
     router = DefaultRouter()
     router.register(r'users', UserViewSet)
@@ -108,10 +108,10 @@ The `@detail_route` decorator contains `pk` in its URL pattern and is intended f
 For example:
 
     from django.contrib.auth.models import User
-    from rest_framework import status
-    from rest_framework import viewsets
-    from rest_framework.decorators import detail_route, list_route
-    from rest_framework.response import Response
+    from rest33 import status
+    from rest33 import viewsets
+    from rest33.decorators import detail_route, list_route
+    from rest33.response import Response
     from myapp.serializers import UserSerializer, PasswordSerializer
 
     class UserViewSet(viewsets.ModelViewSet):

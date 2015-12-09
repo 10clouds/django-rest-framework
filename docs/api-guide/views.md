@@ -20,9 +20,9 @@ Using the `APIView` class is pretty much the same as using a regular `View` clas
 
 For example:
 
-    from rest_framework.views import APIView
-    from rest_framework.response import Response
-    from rest_framework import authentication, permissions
+    from rest33.views import APIView
+    from rest33.response import Response
+    from rest33 import authentication, permissions
 
     class ListUsers(APIView):
         """
@@ -99,7 +99,7 @@ You won't typically need to override this method.
 
 Any exception thrown by the handler method will be passed to this method, which either returns a `Response` instance, or re-raises the exception.
 
-The default implementation handles any subclass of `rest_framework.exceptions.APIException`, as well as Django's `Http404` and `PermissionDenied` exceptions, and returns an appropriate error response.
+The default implementation handles any subclass of `rest33.exceptions.APIException`, as well as Django's `Http404` and `PermissionDenied` exceptions, and returns an appropriate error response.
 
 If you need to customize the error responses your API returns you should subclass this method.
 
@@ -131,7 +131,7 @@ REST framework also allows you to work with regular function based views.  It pr
 
 The core of this functionality is the `api_view` decorator, which takes a list of HTTP methods that your view should respond to. For example, this is how you would write a very simple view that just manually returns some data:
 
-    from rest_framework.decorators import api_view
+    from rest33.decorators import api_view
 
     @api_view()
     def hello_world(request):
@@ -151,8 +151,8 @@ By default only `GET` methods will be accepted. Other methods will respond with 
 
 To override the default settings, REST framework provides a set of additional decorators which can be added to your views.  These must come *after* (below) the `@api_view` decorator.  For example, to create a view that uses a [throttle][throttling] to ensure it can only be called once per day by a particular user, use the `@throttle_classes` decorator, passing a list of throttle classes:
 
-    from rest_framework.decorators import api_view, throttle_classes
-    from rest_framework.throttling import UserRateThrottle
+    from rest33.decorators import api_view, throttle_classes
+    from rest33.throttling import UserRateThrottle
 
     class OncePerDayUserThrottle(UserRateThrottle):
             rate = '1/day'

@@ -58,24 +58,24 @@ Often when you're using object level permissions you'll also want to [filter the
 
 The default permission policy may be set globally, using the `DEFAULT_PERMISSION_CLASSES` setting.  For example.
 
-    REST_FRAMEWORK = {
+    REST33 = {
         'DEFAULT_PERMISSION_CLASSES': (
-            'rest_framework.permissions.IsAuthenticated',
+            'rest33.permissions.IsAuthenticated',
         )
     }
 
 If not specified, this setting defaults to allowing unrestricted access:
 
     'DEFAULT_PERMISSION_CLASSES': (
-       'rest_framework.permissions.AllowAny',
+       'rest33.permissions.AllowAny',
     )
 
 You can also set the authentication policy on a per-view, or per-viewset basis,
 using the `APIView` class based views.
 
-    from rest_framework.permissions import IsAuthenticated
-    from rest_framework.response import Response
-    from rest_framework.views import APIView
+    from rest33.permissions import IsAuthenticated
+    from rest33.response import Response
+    from rest33.views import APIView
 
     class ExampleView(APIView):
         permission_classes = (IsAuthenticated,)
@@ -88,9 +88,9 @@ using the `APIView` class based views.
 
 Or, if you're using the `@api_view` decorator with function based views.
 
-    from rest_framework.decorators import api_view, permission_classes
-    from rest_framework.permissions import IsAuthenticated
-    from rest_framework.response import Response
+    from rest33.decorators import api_view, permission_classes
+    from rest33.permissions import IsAuthenticated
+    from rest33.response import Response
 
     @api_view('GET')
     @permission_classes((IsAuthenticated, ))
@@ -196,7 +196,7 @@ If you need to test if a request is a read operation or a write operation, you s
 
 Custom permissions will raise a `PermissionDenied` exception if the test fails. To change the error message associated with the exception, implement a `message` attribute directly on your custom permission. Otherwise the `default_detail` attribute from `PermissionDenied` will be used.
     
-    from rest_framework import permissions
+    from rest33 import permissions
 
     class CustomerAccessPermission(permissions.BasePermission):
         message = 'Adding customers not allowed.'
@@ -208,7 +208,7 @@ Custom permissions will raise a `PermissionDenied` exception if the test fails. 
 
 The following is an example of a permission class that checks the incoming request's IP address against a blacklist, and denies the request if the IP has been blacklisted.
 
-    from rest_framework import permissions
+    from rest33 import permissions
 
     class BlacklistPermission(permissions.BasePermission):
         """
@@ -270,6 +270,6 @@ The [DRY Rest Permissions][dry-rest-permissions] package provides the ability to
 [2.2-announcement]: ../topics/2.2-announcement.md
 [filtering]: filtering.md
 [drf-any-permissions]: https://github.com/kevin-brown/drf-any-permissions
-[composed-permissions]: https://github.com/niwibe/djangorestframework-composed-permissions
+[composed-permissions]: https://github.com/niwibe/drf33-composed-permissions
 [rest-condition]: https://github.com/caxap/rest_condition
 [dry-rest-permissions]: https://github.com/Helioscene/dry-rest-permissions

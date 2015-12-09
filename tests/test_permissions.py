@@ -8,14 +8,14 @@ from django.core.urlresolvers import ResolverMatch
 from django.db import models
 from django.test import TestCase
 
-from rest_framework import (
+from rest33 import (
     HTTP_HEADER_ENCODING, authentication, generics, permissions, serializers,
     status
 )
-from rest_framework.compat import guardian
-from rest_framework.filters import DjangoObjectPermissionsFilter
-from rest_framework.routers import DefaultRouter
-from rest_framework.test import APIRequestFactory
+from rest33.compat import guardian
+from rest33.filters import DjangoObjectPermissionsFilter
+from rest33.routers import DefaultRouter
+from rest33.test import APIRequestFactory
 from tests.models import BasicModel
 
 factory = APIRequestFactory()

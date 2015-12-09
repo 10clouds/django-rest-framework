@@ -7,13 +7,13 @@ from django.contrib.auth.models import User
 from django.core.cache import cache
 from django.test import TestCase
 
-from rest_framework.response import Response
-from rest_framework.settings import api_settings
-from rest_framework.test import APIRequestFactory
-from rest_framework.throttling import (
+from rest33.response import Response
+from rest33.settings import api_settings
+from rest33.test import APIRequestFactory
+from rest33.throttling import (
     BaseThrottle, ScopedRateThrottle, UserRateThrottle
 )
-from rest_framework.views import APIView
+from rest33.views import APIView
 
 
 class User3SecRateThrottle(UserRateThrottle):

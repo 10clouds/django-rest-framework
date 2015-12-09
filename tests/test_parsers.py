@@ -7,8 +7,8 @@ from django.core.files.uploadhandler import MemoryFileUploadHandler
 from django.test import TestCase
 from django.utils.six.moves import StringIO
 
-from rest_framework.exceptions import ParseError
-from rest_framework.parsers import FileUploadParser, FormParser
+from rest33.exceptions import ParseError
+from rest33.parsers import FileUploadParser, FormParser
 
 
 class Form(forms.Form):

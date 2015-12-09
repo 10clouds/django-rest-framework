@@ -37,7 +37,7 @@ You'll be prompted for some questions, answer them, then it'll create your Pytho
     full_name (default is "Your full name here")? Johnny Appleseed
     email (default is "you@example.com")? jappleseed@example.com
     github_username (default is "yourname")? jappleseed
-    pypi_project_name (default is "dj-package")? djangorestframework-custom-auth
+    pypi_project_name (default is "dj-package")? drf33-custom-auth
     repo_name (default is "dj-package")? django-rest-framework-custom-auth
     app_name (default is "djpackage")? custom_auth
     project_short_description (default is "Your project description goes here")?
@@ -181,27 +181,27 @@ To submit new content, [open an issue][drf-create-issue] or [create a pull reque
 
 ### Authentication
 
-* [djangorestframework-digestauth][djangorestframework-digestauth] - Provides Digest Access Authentication support.
+* [drf33-digestauth][drf33-digestauth] - Provides Digest Access Authentication support.
 * [django-oauth-toolkit][django-oauth-toolkit] - Provides OAuth 2.0 support.
 * [doac][doac] - Provides OAuth 2.0 support.
-* [djangorestframework-jwt][djangorestframework-jwt] - Provides JSON Web Token Authentication support.
+* [drf33-jwt][drf33-jwt] - Provides JSON Web Token Authentication support.
 * [hawkrest][hawkrest] - Provides Hawk HTTP Authorization.
-* [djangorestframework-httpsignature][djangorestframework-httpsignature] - Provides an easy to use HTTP Signature Authentication mechanism.
+* [drf33-httpsignature][drf33-httpsignature] - Provides an easy to use HTTP Signature Authentication mechanism.
 * [djoser][djoser] - Provides a set of views to handle basic actions such as registration, login, logout, password reset and account activation.
 * [django-rest-auth][django-rest-auth] - Provides a set of REST API endpoints for registration, authentication (including social media authentication), password reset, retrieve and update user details, etc.
 
 ### Permissions
 
 * [drf-any-permissions][drf-any-permissions] - Provides alternative permission handling.
-* [djangorestframework-composed-permissions][djangorestframework-composed-permissions] - Provides a simple way to define complex permissions.
+* [drf33-composed-permissions][drf33-composed-permissions] - Provides a simple way to define complex permissions.
 * [rest_condition][rest-condition] - Another extension for building complex permissions in a simple and convenient way.
 * [dry-rest-permissions][dry-rest-permissions] - Provides a simple way to define permissions for individual api actions.
 
 ### Serializers
 
 * [django-rest-framework-mongoengine][django-rest-framework-mongoengine] - Serializer class that supports using MongoDB as the storage layer for Django REST framework.
-* [djangorestframework-gis][djangorestframework-gis] - Geographic add-ons
-* [djangorestframework-hstore][djangorestframework-hstore] - Serializer class to support django-hstore DictionaryField model field and its schema-mode feature.
+* [drf33-gis][drf33-gis] - Geographic add-ons
+* [drf33-hstore][drf33-hstore] - Serializer class to support django-hstore DictionaryField model field and its schema-mode feature.
 
 ### Serializer fields
 
@@ -211,7 +211,7 @@ To submit new content, [open an issue][drf-create-issue] or [create a pull reque
 
 ### Views
 
-* [djangorestframework-bulk][djangorestframework-bulk] - Implements generic view mixins as well as some common concrete generic views to allow to apply bulk operations via API requests.
+* [drf33-bulk][drf33-bulk] - Implements generic view mixins as well as some common concrete generic views to allow to apply bulk operations via API requests.
 * [django-rest-multiple-models][django-rest-multiple-models] - Provides a generic view (and mixin) for sending multiple serialized models and/or querysets via a single API request.
 
 ### Routers
@@ -221,18 +221,18 @@ To submit new content, [open an issue][drf-create-issue] or [create a pull reque
 
 ### Parsers
 
-* [djangorestframework-msgpack][djangorestframework-msgpack] - Provides MessagePack renderer and parser support.
-* [djangorestframework-camel-case][djangorestframework-camel-case] - Provides camel case JSON renderers and parsers.
+* [drf33-msgpack][drf33-msgpack] - Provides MessagePack renderer and parser support.
+* [drf33-camel-case][drf33-camel-case] - Provides camel case JSON renderers and parsers.
 
 ### Renderers
 
-* [djangorestframework-csv][djangorestframework-csv] - Provides CSV renderer support.
+* [drf33-csv][drf33-csv] - Provides CSV renderer support.
 * [drf_ujson][drf_ujson] - Implements JSON rendering using the UJSON package.
 * [rest-pandas][rest-pandas] - Pandas DataFrame-powered renderers including Excel, CSV, and SVG formats.
 
 ### Filtering
 
-* [djangorestframework-chain][djangorestframework-chain] - Allows arbitrary chaining of both relations and lookup filters.
+* [drf33-chain][drf33-chain] - Allows arbitrary chaining of both relations and lookup filters.
 * [django-url-filter][django-url-filter] - Allows a safe way to filter data via human-friendly URLs. It is a generic library which is not tied to DRF but it provides easy integration with DRF.
 
 ### Misc
@@ -287,7 +287,7 @@ To submit new content, [open an issue][drf-create-issue] or [create a pull reque
 [pypi-register]: https://pypi.python.org/pypi?%3Aaction=register_form
 [semver]: http://semver.org/
 [tox-docs]: https://tox.readthedocs.org/en/latest/
-[drf-compat]: https://github.com/tomchristie/django-rest-framework/blob/master/rest_framework/compat.py
+[drf-compat]: https://github.com/tomchristie/django-rest-framework/blob/master/rest33/compat.py
 [rest-framework-grid]: https://www.djangopackages.com/grids/g/django-rest-framework/
 [drf-create-pr]: https://github.com/tomchristie/django-rest-framework/compare
 [drf-create-issue]: https://github.com/tomchristie/django-rest-framework/issues/new
@@ -295,31 +295,31 @@ To submit new content, [open an issue][drf-create-issue] or [create a pull reque
 [permissions]: ../api-guide/permissions.md
 [third-party-resources]: ../topics/third-party-resources/#existing-third-party-packages
 [discussion-group]: https://groups.google.com/forum/#!forum/django-rest-framework
-[djangorestframework-digestauth]: https://github.com/juanriaza/django-rest-framework-digestauth
+[drf33-digestauth]: https://github.com/juanriaza/django-rest-framework-digestauth
 [django-oauth-toolkit]: https://github.com/evonove/django-oauth-toolkit
 [doac]: https://github.com/Rediker-Software/doac
-[djangorestframework-jwt]: https://github.com/GetBlimp/django-rest-framework-jwt
+[drf33-jwt]: https://github.com/GetBlimp/django-rest-framework-jwt
 [hawkrest]: https://github.com/kumar303/hawkrest
-[djangorestframework-httpsignature]: https://github.com/etoccalino/django-rest-framework-httpsignature
+[drf33-httpsignature]: https://github.com/etoccalino/django-rest-framework-httpsignature
 [djoser]: https://github.com/sunscrapers/djoser
 [drf-any-permissions]: https://github.com/kevin-brown/drf-any-permissions
-[djangorestframework-composed-permissions]: https://github.com/niwibe/djangorestframework-composed-permissions
+[drf33-composed-permissions]: https://github.com/niwibe/drf33-composed-permissions
 [rest-condition]: https://github.com/caxap/rest_condition
 [django-rest-framework-mongoengine]: https://github.com/umutbozkurt/django-rest-framework-mongoengine
-[djangorestframework-gis]: https://github.com/djangonauts/django-rest-framework-gis
-[djangorestframework-hstore]: https://github.com/djangonauts/django-rest-framework-hstore
+[drf33-gis]: https://github.com/djangonauts/django-rest-framework-gis
+[drf33-hstore]: https://github.com/djangonauts/django-rest-framework-hstore
 [drf-compound-fields]: https://github.com/estebistec/drf-compound-fields
 [django-extra-fields]: https://github.com/Hipo/drf-extra-fields
-[djangorestframework-bulk]: https://github.com/miki725/django-rest-framework-bulk
+[drf33-bulk]: https://github.com/miki725/django-rest-framework-bulk
 [django-rest-multiple-models]: https://github.com/Axiologue/DjangoRestMultipleModels
 [drf-nested-routers]: https://github.com/alanjds/drf-nested-routers
 [wq.db.rest]: http://wq.io/docs/about-rest
-[djangorestframework-msgpack]: https://github.com/juanriaza/django-rest-framework-msgpack
-[djangorestframework-camel-case]: https://github.com/vbabiy/djangorestframework-camel-case
-[djangorestframework-csv]: https://github.com/mjumbewu/django-rest-framework-csv
+[drf33-msgpack]: https://github.com/juanriaza/django-rest-framework-msgpack
+[drf33-camel-case]: https://github.com/vbabiy/drf33-camel-case
+[drf33-csv]: https://github.com/mjumbewu/django-rest-framework-csv
 [drf_ujson]: https://github.com/gizmag/drf-ujson-renderer
 [rest-pandas]: https://github.com/wq/django-rest-pandas
-[djangorestframework-chain]: https://github.com/philipn/django-rest-framework-chain
+[drf33-chain]: https://github.com/philipn/django-rest-framework-chain
 [djangorestrelationalhyperlink]: https://github.com/fredkingham/django_rest_model_hyperlink_serializers_project
 [django-rest-swagger]: https://github.com/marcgibbons/django-rest-swagger
 [django-rest-framework-proxy]: https://github.com/eofs/django-rest-framework-proxy

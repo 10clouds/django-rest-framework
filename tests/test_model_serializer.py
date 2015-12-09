@@ -20,9 +20,9 @@ from django.db import models
 from django.test import TestCase
 from django.utils import six
 
-from rest_framework import serializers
-from rest_framework.compat import DurationField as ModelDurationField
-from rest_framework.compat import DecimalValidator, unicode_repr
+from rest33 import serializers
+from rest33.compat import DurationField as ModelDurationField
+from rest33.compat import DecimalValidator, unicode_repr
 
 
 def dedent(blocktext):

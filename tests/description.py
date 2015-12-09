@@ -6,7 +6,7 @@
 # to catch unicode related errors, a mock view has to be declared in a separate
 # module.
 
-from rest_framework.views import APIView
+from rest33.views import APIView
 
 # test strings snatched from http://www.columbia.edu/~fdc/utf8/,
 # http://winrus.com/utf8-jap.htm and memory

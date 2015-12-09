@@ -9,9 +9,9 @@ We'll start by rewriting the root view as a class based view.  All this involves
     from snippets.models import Snippet
     from snippets.serializers import SnippetSerializer
     from django.http import Http404
-    from rest_framework.views import APIView
-    from rest_framework.response import Response
-    from rest_framework import status
+    from rest33.views import APIView
+    from rest33.response import Response
+    from rest33 import status
 
 
     class SnippetList(APIView):
@@ -65,7 +65,7 @@ That's looking good.  Again, it's still pretty similar to the function based vie
 We'll also need to refactor our `urls.py` slightly now we're using class based views.
 
     from django.conf.urls import url
-    from rest_framework.urlpatterns import format_suffix_patterns
+    from rest33.urlpatterns import format_suffix_patterns
     from snippets import views
 
     urlpatterns = [
@@ -87,8 +87,8 @@ Let's take a look at how we can compose the views by using the mixin classes.  H
 
     from snippets.models import Snippet
     from snippets.serializers import SnippetSerializer
-    from rest_framework import mixins
-    from rest_framework import generics
+    from rest33 import mixins
+    from rest33 import generics
 
     class SnippetList(mixins.ListModelMixin,
                       mixins.CreateModelMixin,
@@ -130,7 +130,7 @@ Using the mixin classes we've rewritten the views to use slightly less code than
 
     from snippets.models import Snippet
     from snippets.serializers import SnippetSerializer
-    from rest_framework import generics
+    from rest33 import generics
 
 
     class SnippetList(generics.ListCreateAPIView):

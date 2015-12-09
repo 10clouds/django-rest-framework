@@ -16,7 +16,7 @@ Create a new Django project named `tutorial`, then start a new app called `quick
 
     # Install Django and Django REST framework into the virtualenv
     pip install django
-    pip install djangorestframework
+    pip install drf33
 
     # Set up a new project with a single application
     django-admin.py startproject tutorial .  # Note the trailing '.' character
@@ -39,7 +39,7 @@ Once you've set up a database and initial user created and ready to go, open up 
 First up we're going to define some serializers. Let's create a new module named `tutorial/quickstart/serializers.py` that we'll use for our data representations.
 
     from django.contrib.auth.models import User, Group
-    from rest_framework import serializers
+    from rest33 import serializers
 
 
     class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -60,7 +60,7 @@ Notice that we're using hyperlinked relations in this case, with `HyperlinkedMod
 Right, we'd better write some views then.  Open `tutorial/quickstart/views.py` and get typing.
 
     from django.contrib.auth.models import User, Group
-    from rest_framework import viewsets
+    from rest33 import viewsets
     from tutorial.quickstart.serializers import UserSerializer, GroupSerializer
 
 
@@ -88,7 +88,7 @@ We can easily break these down into individual views if we need to, but using vi
 Okay, now let's wire up the API URLs.  On to `tutorial/urls.py`...
 
     from django.conf.urls import url, include
-    from rest_framework import routers
+    from rest33 import routers
     from tutorial.quickstart import views
 
     router = routers.DefaultRouter()
@@ -99,7 +99,7 @@ Okay, now let's wire up the API URLs.  On to `tutorial/urls.py`...
     # Additionally, we include login URLs for the browsable API.
     urlpatterns = [
         url(r'^', include(router.urls)),
-        url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+        url(r'^api-auth/', include('rest33.urls', namespace='rest33'))
     ]
 
 Because we're using viewsets instead of views, we can automatically generate the URL conf for our API, by simply registering the viewsets with a router class.
@@ -114,11 +114,11 @@ We'd also like to set a few global settings.  We'd like to turn on pagination, a
 
     INSTALLED_APPS = (
         ...
-        'rest_framework',
+        'rest33',
     )
 
-    REST_FRAMEWORK = {
-        'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
+    REST33 = {
+        'DEFAULT_PERMISSION_CLASSES': ('rest33.permissions.IsAdminUser',),
         'PAGE_SIZE': 10
     }
 

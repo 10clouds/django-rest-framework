@@ -14,7 +14,7 @@ REST framework adds support for automatic URL routing to Django, and provides yo
 
 Here's an example of a simple URL conf, that uses `SimpleRouter`.
 
-    from rest_framework import routers
+    from rest33 import routers
 
     router = routers.SimpleRouter()
     router.register(r'users', UserViewSet)
@@ -87,7 +87,7 @@ Any methods on the viewset decorated with `@detail_route` or `@list_route` will 
 For example, given a method like this on the `UserViewSet` class:
 
     from myapp.permissions import IsAdminOrIsSelf
-    from rest_framework.decorators import detail_route
+    from rest33.decorators import detail_route
 
     class UserViewSet(ModelViewSet):
         ...
@@ -105,7 +105,7 @@ If you do not want to use the default URL generated for your custom action, you 
 For example, if you want to change the URL for our custom action to `^users/{pk}/change-password/$`, you could write:
 
     from myapp.permissions import IsAdminOrIsSelf
-    from rest_framework.decorators import detail_route
+    from rest33.decorators import detail_route
     
     class UserViewSet(ModelViewSet):
         ...
@@ -211,7 +211,7 @@ The arguments to `DynamicListRoute` and `DynamicDetailRoute` are:
 
 The following example will only route to the `list` and `retrieve` actions, and does not use the trailing slash convention.
 
-    from rest_framework.routers import Route, DynamicDetailRoute, SimpleRouter
+    from rest33.routers import Route, DynamicDetailRoute, SimpleRouter
 
     class CustomReadOnlyRouter(SimpleRouter):
         """

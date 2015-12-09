@@ -12,13 +12,13 @@ from django.contrib.sessions.middleware import SessionMiddleware
 from django.test import TestCase
 from django.utils import six
 
-from rest_framework import status
-from rest_framework.authentication import SessionAuthentication
-from rest_framework.parsers import BaseParser, FormParser, MultiPartParser
-from rest_framework.request import Request
-from rest_framework.response import Response
-from rest_framework.test import APIClient, APIRequestFactory
-from rest_framework.views import APIView
+from rest33 import status
+from rest33.authentication import SessionAuthentication
+from rest33.parsers import BaseParser, FormParser, MultiPartParser
+from rest33.request import Request
+from rest33.response import Response
+from rest33.test import APIClient, APIRequestFactory
+from rest33.views import APIView
 
 factory = APIRequestFactory()
 
@@ -176,8 +176,8 @@ class TestUserSetter(TestCase):
         """
         class AuthRaisesAttributeError(object):
             def authenticate(self, request):
-                import rest_framework
-                rest_framework.MISSPELLED_NAME_THAT_DOESNT_EXIST
+                import rest33
+                rest33.MISSPELLED_NAME_THAT_DOESNT_EXIST
 
         self.request = Request(factory.get('/'), authenticators=(AuthRaisesAttributeError(),))
         SessionMiddleware().process_request(self.request)

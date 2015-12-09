@@ -4,9 +4,9 @@ import pytest
 from django.core.exceptions import ImproperlyConfigured
 from django.utils.datastructures import MultiValueDict
 
-from rest_framework import serializers
-from rest_framework.fields import empty
-from rest_framework.test import APISimpleTestCase
+from rest33 import serializers
+from rest33.fields import empty
+from rest33.test import APISimpleTestCase
 
 from .utils import (
     BadType, MockObject, MockQueryset, fail_reverse, mock_reverse

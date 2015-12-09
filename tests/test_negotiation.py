@@ -2,10 +2,10 @@ from __future__ import unicode_literals
 
 from django.test import TestCase
 
-from rest_framework.negotiation import DefaultContentNegotiation
-from rest_framework.renderers import BaseRenderer
-from rest_framework.request import Request
-from rest_framework.test import APIRequestFactory
+from rest33.negotiation import DefaultContentNegotiation
+from rest33.renderers import BaseRenderer
+from rest33.request import Request
+from rest33.test import APIRequestFactory
 
 factory = APIRequestFactory()
 

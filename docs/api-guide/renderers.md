@@ -20,10 +20,10 @@ For more information see the documentation on [content negotiation][conneg].
 
 The default set of renderers may be set globally, using the `DEFAULT_RENDERER_CLASSES` setting.  For example, the following settings would use `JSON` as the main media type and also include the self describing API.
 
-    REST_FRAMEWORK = {
+    REST33 = {
         'DEFAULT_RENDERER_CLASSES': (
-            'rest_framework.renderers.JSONRenderer',
-            'rest_framework.renderers.BrowsableAPIRenderer',
+            'rest33.renderers.JSONRenderer',
+            'rest33.renderers.BrowsableAPIRenderer',
         )
     }
 
@@ -31,9 +31,9 @@ You can also set the renderers used for an individual view, or viewset,
 using the `APIView` class based views.
 
     from django.contrib.auth.models import User
-    from rest_framework.renderers import JSONRenderer
-    from rest_framework.response import Response
-    from rest_framework.views import APIView
+    from rest33.renderers import JSONRenderer
+    from rest33.response import Response
+    from rest33.views import APIView
 
     class UserCountView(APIView):
         """
@@ -167,7 +167,7 @@ This renderer will determine which other renderer would have been given highest 
 
 **.charset**: `utf-8`
 
-**.template**: `'rest_framework/api.html'`
+**.template**: `'rest33/api.html'`
 
 #### Customizing BrowsableAPIRenderer
 
@@ -193,7 +193,7 @@ Note that views that have nested or list serializers for their input won't work 
 
 **.charset**: `utf-8`
 
-**.template**: `'rest_framework/admin.html'`
+**.template**: `'rest33/admin.html'`
 
 ## HTMLFormRenderer
 
@@ -201,7 +201,7 @@ Renders data returned by a serializer into an HTML form. The output of this rend
 
 This renderer is not intended to be used directly, but can instead be used in templates by passing a serializer instance to the `render_form` template tag.
 
-    {% load rest_framework %}
+    {% load rest33 %}
 
     <form action="/submit-report/" method="post">
         {% csrf_token %}
@@ -217,7 +217,7 @@ For more information see the [HTML & Forms][html-and-forms] documentation.
 
 **.charset**: `utf-8`
 
-**.template**: `'rest_framework/horizontal/form.html'`
+**.template**: `'rest33/horizontal/form.html'`
 
 ## MultiPartRenderer
 
@@ -260,7 +260,7 @@ By default this will include the following keys: `view`, `request`, `response`, 
 The following is an example plaintext renderer that will return a response with the `data` parameter as the content of the response.
 
     from django.utils.encoding import smart_unicode
-    from rest_framework import renderers
+    from rest33 import renderers
 
 
     class PlainTextRenderer(renderers.BaseRenderer):
@@ -382,16 +382,16 @@ The following third party packages are also available.
 
 Install using pip.
 
-    $ pip install djangorestframework-yaml
+    $ pip install drf33-yaml
 
 Modify your REST framework settings.
 
-    REST_FRAMEWORK = {
+    REST33 = {
         'DEFAULT_PARSER_CLASSES': (
-            'rest_framework_yaml.parsers.YAMLParser',
+            'rest33_yaml.parsers.YAMLParser',
         ),
         'DEFAULT_RENDERER_CLASSES': (
-            'rest_framework_yaml.renderers.YAMLRenderer',
+            'rest33_yaml.renderers.YAMLRenderer',
         ),
     }
 
@@ -403,16 +403,16 @@ Modify your REST framework settings.
 
 Install using pip.
 
-    $ pip install djangorestframework-xml
+    $ pip install drf33-xml
 
 Modify your REST framework settings.
 
-    REST_FRAMEWORK = {
+    REST33 = {
         'DEFAULT_PARSER_CLASSES': (
-            'rest_framework_xml.parsers.XMLParser',
+            'rest33_xml.parsers.XMLParser',
         ),
         'DEFAULT_RENDERER_CLASSES': (
-            'rest_framework_xml.renderers.XMLRenderer',
+            'rest33_xml.renderers.XMLRenderer',
         ),
     }
 
@@ -432,23 +432,23 @@ The `jsonp` approach is essentially a browser hack, and is [only appropriate for
 
 Install using pip.
 
-    $ pip install djangorestframework-jsonp
+    $ pip install drf33-jsonp
 
 Modify your REST framework settings.
 
-    REST_FRAMEWORK = {
+    REST33 = {
         'DEFAULT_RENDERER_CLASSES': (
-            'rest_framework_jsonp.renderers.JSONPRenderer',
+            'rest33_jsonp.renderers.JSONPRenderer',
         ),
     }
 
 ## MessagePack
 
-[MessagePack][messagepack] is a fast, efficient binary serialization format.  [Juan Riaza][juanriaza] maintains the [djangorestframework-msgpack][djangorestframework-msgpack] package which provides MessagePack renderer and parser support for REST framework.
+[MessagePack][messagepack] is a fast, efficient binary serialization format.  [Juan Riaza][juanriaza] maintains the [drf33-msgpack][drf33-msgpack] package which provides MessagePack renderer and parser support for REST framework.
 
 ## CSV
 
-Comma-separated values are a plain-text tabular data format, that can be easily imported into spreadsheet applications. [Mjumbe Poe][mjumbewu] maintains the [djangorestframework-csv][djangorestframework-csv] package which provides CSV renderer support for REST framework.
+Comma-separated values are a plain-text tabular data format, that can be easily imported into spreadsheet applications. [Mjumbe Poe][mjumbewu] maintains the [drf33-csv][drf33-csv] package which provides CSV renderer support for REST framework.
 
 ## UltraJSON
 
@@ -456,7 +456,7 @@ Comma-separated values are a plain-text tabular data format, that can be easily 
 
 ## CamelCase JSON
 
-[djangorestframework-camel-case] provides camel case JSON renderers and parsers for REST framework.  This allows serializers to use Python-style underscored field names, but be exposed in the API as Javascript-style camel case field names.  It is maintained by [Vitaly Babiy][vbabiy].
+[drf33-camel-case] provides camel case JSON renderers and parsers for REST framework.  This allows serializers to use Python-style underscored field names, but be exposed in the API as Javascript-style camel case field names.  It is maintained by [Vitaly Babiy][vbabiy].
 
 ## Pandas (CSV, Excel, PNG)
 
@@ -486,12 +486,12 @@ Comma-separated values are a plain-text tabular data format, that can be easily 
 [rest-framework-yaml]: http://jpadilla.github.io/django-rest-framework-yaml/
 [rest-framework-xml]: http://jpadilla.github.io/django-rest-framework-xml/
 [yaml]: http://www.yaml.org/
-[djangorestframework-msgpack]: https://github.com/juanriaza/django-rest-framework-msgpack
-[djangorestframework-csv]: https://github.com/mjumbewu/django-rest-framework-csv
+[drf33-msgpack]: https://github.com/juanriaza/django-rest-framework-msgpack
+[drf33-csv]: https://github.com/mjumbewu/django-rest-framework-csv
 [ultrajson]: https://github.com/esnme/ultrajson
 [hzy]: https://github.com/hzy
 [drf-ujson-renderer]: https://github.com/gizmag/drf-ujson-renderer
-[djangorestframework-camel-case]: https://github.com/vbabiy/djangorestframework-camel-case
+[drf33-camel-case]: https://github.com/vbabiy/drf33-camel-case
 [Django REST Pandas]: https://github.com/wq/django-rest-pandas
 [Pandas]: http://pandas.pydata.org/
 [other formats]: https://github.com/wq/django-rest-pandas#supported-formats

@@ -25,7 +25,7 @@ Arguments:
 
 Example:
 
-    from rest_framework.urlpatterns import format_suffix_patterns
+    from rest33.urlpatterns import format_suffix_patterns
     from blog import views
 
     urlpatterns = [

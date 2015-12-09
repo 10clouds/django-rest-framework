@@ -3,7 +3,7 @@ import datetime
 from django.db import models
 from django.test import TestCase
 
-from rest_framework import serializers
+from rest33 import serializers
 
 
 def dedent(blocktext):

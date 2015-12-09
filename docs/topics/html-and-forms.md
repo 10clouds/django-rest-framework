@@ -17,9 +17,9 @@ Here's an example of a view that returns a list of "Profile" instances, rendered
 **views.py**:
 
     from my_project.example.models import Profile
-    from rest_framework.renderers import TemplateHTMLRenderer
-    from rest_framework.response import Response
-    from rest_framework.views import APIView
+    from rest33.renderers import TemplateHTMLRenderer
+    from rest33.response import Response
+    from rest33.views import APIView
 
 
     class ProfileList(APIView):
@@ -51,8 +51,8 @@ The following view demonstrates an example of using a serializer in a template f
 
     from django.shortcuts import get_object_or_404
     from my_project.example.models import Profile
-    from rest_framework.renderers import TemplateHTMLRenderer
-    from rest_framework.views import APIView
+    from rest33.renderers import TemplateHTMLRenderer
+    from rest33.views import APIView
 
 
     class ProfileDetail(APIView):
@@ -68,11 +68,12 @@ The following view demonstrates an example of using a serializer in a template f
             profile = get_object_or_404(Profile, pk=pk)
             serializer = ProfileSerializer(profile)
             if not serializer.is_valid():
-                return Response({'serializer': serializer, 'profile': profile})            return redirect('profile-list')
+                return Response({'serializer': serializer, 'profile': profile})
+            return redirect('profile-list')
 
 **profile_detail.html**:
 
-    {% load rest_framework %}
+    {% load rest33 %}
 
     <html><body>
     
@@ -112,34 +113,37 @@ Let's take a look at how to render each of the three available template packs. F
             max_length=100,
             style={'input_type': 'password', 'placeholder': 'Password'}
         )
-        remember_me = serializers.BooleanField()---
+        remember_me = serializers.BooleanField()
 
-#### `rest_framework/vertical`
+---
+
+#### `rest33/vertical`
 
 Presents form labels above their corresponding control inputs, using the standard Bootstrap layout.
 
 *This is the default template pack.*
 
-    {% load rest_framework %}
+    {% load rest33 %}
 
     ...
 
     <form action="{% url 'login' %}" method="post" novalidate>
         {% csrf_token %}
-        {% render_form serializer template_pack='rest_framework/vertical' %}
+        {% render_form serializer template_pack='rest33/vertical' %}
         <button type="submit" class="btn btn-default">Sign in</button>
     </form>
 
 ![Vertical form example](../img/vertical.png)
 
 ---
-#### `rest_framework/horizontal`
+
+#### `rest33/horizontal`
 
 Presents labels and controls alongside each other, using a 2/10 column split.
 
 *This is the form style used in the browsable API and admin renderers.*
 
-    {% load rest_framework %}
+    {% load rest33 %}
 
     ...
 
@@ -157,17 +161,17 @@ Presents labels and controls alongside each other, using a 2/10 column split.
 
 ---
 
-#### `rest_framework/inline`
+#### `rest33/inline`
 
 A compact form style that presents all the controls inline.
 
-    {% load rest_framework %}
+    {% load rest33 %}
 
     ...
 
     <form class="form-inline" action="{% url 'login' %}" method="post" novalidate>
         {% csrf_token %}
-        {% render_form serializer template_pack='rest_framework/inline' %}
+        {% render_form serializer template_pack='rest33/inline' %}
         <button type="submit" class="btn btn-default">Sign in</button>
     </form>
 

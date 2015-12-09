@@ -36,20 +36,20 @@ The value of `request.user` and `request.auth` for unauthenticated requests can 
 
 The default authentication schemes may be set globally, using the `DEFAULT_AUTHENTICATION_CLASSES` setting.  For example.
 
-    REST_FRAMEWORK = {
+    REST33 = {
         'DEFAULT_AUTHENTICATION_CLASSES': (
-            'rest_framework.authentication.BasicAuthentication',
-            'rest_framework.authentication.SessionAuthentication',
+            'rest33.authentication.BasicAuthentication',
+            'rest33.authentication.SessionAuthentication',
         )
     }
 
 You can also set the authentication scheme on a per-view or per-viewset basis,
 using the `APIView` class based views.
 
-    from rest_framework.authentication import SessionAuthentication, BasicAuthentication
-    from rest_framework.permissions import IsAuthenticated
-    from rest_framework.response import Response
-    from rest_framework.views import APIView
+    from rest33.authentication import SessionAuthentication, BasicAuthentication
+    from rest33.permissions import IsAuthenticated
+    from rest33.response import Response
+    from rest33.views import APIView
 
     class ExampleView(APIView):
         authentication_classes = (SessionAuthentication, BasicAuthentication)
@@ -119,23 +119,23 @@ Unauthenticated responses that are denied permission will result in an `HTTP 401
 
 This authentication scheme uses a simple token-based HTTP Authentication scheme.  Token authentication is appropriate for client-server setups, such as native desktop and mobile clients.
 
-To use the `TokenAuthentication` scheme you'll need to [configure the authentication classes](#setting-the-authentication-scheme) to include `TokenAuthentication`, and additionally include `rest_framework.authtoken` in your `INSTALLED_APPS` setting:
+To use the `TokenAuthentication` scheme you'll need to [configure the authentication classes](#setting-the-authentication-scheme) to include `TokenAuthentication`, and additionally include `rest33.authtoken` in your `INSTALLED_APPS` setting:
 
     INSTALLED_APPS = (
         ...
-        'rest_framework.authtoken'
+        'rest33.authtoken'
     )
 
 ---
 
-**Note:** Make sure to run `manage.py syncdb` after changing your settings. The `rest_framework.authtoken` app provides both Django (from v1.7) and South database migrations. See [Schema migrations](#schema-migrations) below.
+**Note:** Make sure to run `manage.py syncdb` after changing your settings. The `rest33.authtoken` app provides both Django (from v1.7) and South database migrations. See [Schema migrations](#schema-migrations) below.
 
 ---
 
 
 You'll also need to create tokens for your users.
 
-    from rest_framework.authtoken.models import Token
+    from rest33.authtoken.models import Token
 
     token = Token.objects.create(user=...)
     print token.key
@@ -147,7 +147,7 @@ For clients to authenticate, the token key should be included in the `Authorizat
 If successfully authenticated, `TokenAuthentication` provides the following credentials.
 
 * `request.user` will be a Django `User` instance.
-* `request.auth` will be a `rest_framework.authtoken.models.BasicToken` instance.
+* `request.auth` will be a `rest33.authtoken.models.BasicToken` instance.
 
 Unauthenticated responses that are denied permission will result in an `HTTP 401 Unauthorized` response with an appropriate WWW-Authenticate header.  For example:
 
@@ -170,7 +170,7 @@ If you want every user to have an automatically generated Token, you can simply 
     from django.conf import settings
     from django.db.models.signals import post_save
     from django.dispatch import receiver
-    from rest_framework.authtoken.models import Token
+    from rest33.authtoken.models import Token
 
     @receiver(post_save, sender=settings.AUTH_USER_MODEL)
     def create_auth_token(sender, instance=None, created=False, **kwargs):
@@ -182,14 +182,14 @@ Note that you'll want to ensure you place this code snippet in an installed `mod
 If you've already created some users, you can generate tokens for all existing users like this:
 
     from django.contrib.auth.models import User
-    from rest_framework.authtoken.models import Token
+    from rest33.authtoken.models import Token
 
     for user in User.objects.all():
         Token.objects.get_or_create(user=user)
 
 When using `TokenAuthentication`, you may want to provide a mechanism for clients to obtain a token given the username and password.  REST framework provides a built-in view to provide this behavior.  To use it, add the `obtain_auth_token` view to your URLconf:
 
-    from rest_framework.authtoken import views
+    from rest33.authtoken import views
     urlpatterns += [
         url(r'^api-token-auth/', views.obtain_auth_token)
     ]
@@ -204,7 +204,7 @@ Note that the default `obtain_auth_token` view explicitly uses JSON requests and
 
 #### Schema migrations
 
-The `rest_framework.authtoken` app includes both Django native migrations (for Django versions >1.7) and South migrations (for Django versions <1.7) that will create the authtoken table.
+The `rest33.authtoken` app includes both Django native migrations (for Django versions >1.7) and South migrations (for Django versions <1.7) that will create the authtoken table.
 
 ----
 
@@ -271,8 +271,8 @@ If the `.authenticate_header()` method is not overridden, the authentication sch
 The following example will authenticate any incoming request as the user given by the username in a custom request header named 'X_USERNAME'.
 
 	from django.contrib.auth.models import User
-    from rest_framework import authentication
-    from rest_framework import exceptions
+    from rest33 import authentication
+    from rest33 import exceptions
 
     class ExampleAuthentication(authentication.BaseAuthentication):
         def authenticate(self, request):
@@ -310,9 +310,9 @@ Add the package to your `INSTALLED_APPS` and modify your REST framework settings
         'oauth2_provider',
     )
 
-    REST_FRAMEWORK = {
+    REST33 = {
         'DEFAULT_AUTHENTICATION_CLASSES': (
-            'oauth2_provider.ext.rest_framework.OAuth2Authentication',
+            'oauth2_provider.ext.rest33.OAuth2Authentication',
         )
     }
 
@@ -328,13 +328,13 @@ This package was previously included directly in REST framework but is now suppo
 
 Install the package using `pip`.
 
-    pip install djangorestframework-oauth
+    pip install drf33-oauth
 
 For details on configuration and usage see the Django REST framework OAuth documentation for [authentication][django-rest-framework-oauth-authentication] and [permissions][django-rest-framework-oauth-permissions].
 
 ## Digest Authentication
 
-HTTP digest authentication is a widely implemented scheme that was intended to replace HTTP basic authentication, and which provides a simple encrypted authentication mechanism. [Juan Riaza][juanriaza] maintains the [djangorestframework-digestauth][djangorestframework-digestauth] package which provides HTTP digest authentication support for REST framework.
+HTTP digest authentication is a widely implemented scheme that was intended to replace HTTP basic authentication, and which provides a simple encrypted authentication mechanism. [Juan Riaza][juanriaza] maintains the [drf33-digestauth][drf33-digestauth] package which provides HTTP digest authentication support for REST framework.
 
 ## Django OAuth2 Consumer
 
@@ -342,7 +342,7 @@ The [Django OAuth2 Consumer][doac] library from [Rediker Software][rediker] is a
 
 ## JSON Web Token Authentication
 
-JSON Web Token is a fairly new standard which can be used for token-based authentication. Unlike the built-in TokenAuthentication scheme, JWT Authentication doesn't need to use a database to validate a token. [Blimp][blimp] maintains the [djangorestframework-jwt][djangorestframework-jwt] package which provides a JWT Authentication class as well as a mechanism for clients to obtain a JWT given the username and password.
+JSON Web Token is a fairly new standard which can be used for token-based authentication. Unlike the built-in TokenAuthentication scheme, JWT Authentication doesn't need to use a database to validate a token. [Blimp][blimp] maintains the [drf33-jwt][drf33-jwt] package which provides a JWT Authentication class as well as a mechanism for clients to obtain a JWT given the username and password.
 
 ## Hawk HTTP Authentication
 
@@ -350,7 +350,7 @@ The [HawkREST][hawkrest] library builds on the [Mohawk][mohawk] library to let y
 
 ## HTTP Signature Authentication
 
-HTTP Signature (currently a [IETF draft][http-signature-ietf-draft]) provides a way to achieve origin authentication and message integrity for HTTP messages. Similar to [Amazon's HTTP Signature scheme][amazon-http-signature], used by many of its services, it permits stateless, per-request authentication. [Elvio Toccalino][etoccalino] maintains the [djangorestframework-httpsignature][djangorestframework-httpsignature] package which provides an easy to use HTTP Signature Authentication mechanism.
+HTTP Signature (currently a [IETF draft][http-signature-ietf-draft]) provides a way to achieve origin authentication and message integrity for HTTP messages. Similar to [Amazon's HTTP Signature scheme][amazon-http-signature], used by many of its services, it permits stateless, per-request authentication. [Elvio Toccalino][etoccalino] maintains the [drf33-httpsignature][drf33-httpsignature] package which provides an easy to use HTTP Signature Authentication mechanism.
 
 ## Djoser
 
@@ -384,7 +384,7 @@ HTTP Signature (currently a [IETF draft][http-signature-ietf-draft]) provides a 
 [django-rest-framework-oauth-authentication]: http://jpadilla.github.io/django-rest-framework-oauth/authentication/
 [django-rest-framework-oauth-permissions]: http://jpadilla.github.io/django-rest-framework-oauth/permissions/
 [juanriaza]: https://github.com/juanriaza
-[djangorestframework-digestauth]: https://github.com/juanriaza/django-rest-framework-digestauth
+[drf33-digestauth]: https://github.com/juanriaza/django-rest-framework-digestauth
 [oauth-1.0a]: http://oauth.net/core/1.0a
 [django-oauth-plus]: http://code.larlet.fr/django-oauth-plus
 [django-oauth2-provider]: https://github.com/caffeinehit/django-oauth2-provider
@@ -397,9 +397,9 @@ HTTP Signature (currently a [IETF draft][http-signature-ietf-draft]) provides a 
 [rediker]: https://github.com/Rediker-Software
 [doac-rest-framework]: https://github.com/Rediker-Software/doac/blob/master/docs/integrations.md#
 [blimp]: https://github.com/GetBlimp
-[djangorestframework-jwt]: https://github.com/GetBlimp/django-rest-framework-jwt
+[drf33-jwt]: https://github.com/GetBlimp/django-rest-framework-jwt
 [etoccalino]: https://github.com/etoccalino/
-[djangorestframework-httpsignature]: https://github.com/etoccalino/django-rest-framework-httpsignature
+[drf33-httpsignature]: https://github.com/etoccalino/django-rest-framework-httpsignature
 [amazon-http-signature]: http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html
 [http-signature-ietf-draft]: https://datatracker.ietf.org/doc/draft-cavage-http-signatures/
 [hawkrest]: http://hawkrest.readthedocs.org/en/latest/

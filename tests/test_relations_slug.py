@@ -1,6 +1,6 @@
 from django.test import TestCase
 
-from rest_framework import serializers
+from rest33 import serializers
 from tests.models import (
     ForeignKeySource, ForeignKeyTarget, NullableForeignKeySource
 )

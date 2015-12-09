@@ -2,7 +2,7 @@ from __future__ import unicode_literals
 
 from django.test import TestCase
 
-from rest_framework.settings import APISettings
+from rest33.settings import APISettings
 
 
 class TestSettings(TestCase):
@@ -22,7 +22,7 @@ class TestSettings(TestCase):
 class TestSettingTypes(TestCase):
     def test_settings_consistently_coerced_to_list(self):
         settings = APISettings({
-            'DEFAULT_THROTTLE_CLASSES': ('rest_framework.throttling.BaseThrottle',)
+            'DEFAULT_THROTTLE_CLASSES': ('rest33.throttling.BaseThrottle',)
         })
         self.assertTrue(isinstance(settings.DEFAULT_THROTTLE_CLASSES, list))
 

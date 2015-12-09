@@ -123,7 +123,7 @@ REST framework includes a number of permission classes that we can use to restri
 
 First add the following import in the views module
 
-    from rest_framework import permissions
+    from rest33 import permissions
 
 Then, add the following property to **both** the `SnippetList` and `SnippetDetail` view classes.
 
@@ -142,11 +142,11 @@ Add the following import at the top of the file:
 And, at the end of the file, add a pattern to include the login and logout views for the browsable API.
 
     urlpatterns += [
-        url(r'^api-auth/', include('rest_framework.urls',
-                                   namespace='rest_framework')),
+        url(r'^api-auth/', include('rest33.urls',
+                                   namespace='rest33')),
     ]
 
-The `r'^api-auth/'` part of pattern can actually be whatever URL you want to use.  The only restriction is that the included urls must use the `'rest_framework'` namespace.
+The `r'^api-auth/'` part of pattern can actually be whatever URL you want to use.  The only restriction is that the included urls must use the `'rest33'` namespace.
 
 Now if you open up the browser again and refresh the page you'll see a 'Login' link in the top right of the page.  If you log in as one of the users you created earlier, you'll be able to create code snippets again.
 
@@ -160,7 +160,7 @@ To do that we're going to need to create a custom permission.
 
 In the snippets app, create a new file, `permissions.py`
 
-    from rest_framework import permissions
+    from rest33 import permissions
 
 
     class IsOwnerOrReadOnly(permissions.BasePermission):

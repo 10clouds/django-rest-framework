@@ -27,8 +27,8 @@ Has the same behavior as [`django.core.urlresolvers.reverse`][reverse], except t
 
 You should **include the request as a keyword argument** to the function, for example:
 
-    from rest_framework.reverse import reverse
-    from rest_framework.views import APIView
+    from rest33.reverse import reverse
+    from rest33.views import APIView
 	from django.utils.timezone import now
 
 	class APIRootView(APIView):

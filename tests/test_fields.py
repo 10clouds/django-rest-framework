@@ -8,8 +8,8 @@ import pytest
 from django.http import QueryDict
 from django.utils import timezone
 
-import rest_framework
-from rest_framework import serializers
+import rest33
+from rest33 import serializers
 
 
 # Tests for field keyword arguments and core functionality.
@@ -1315,7 +1315,7 @@ class TestMultipleChoiceField(FieldValues):
         field.partial = False
         assert field.get_value(QueryDict({})) == []
         field.partial = True
-        assert field.get_value(QueryDict({})) == rest_framework.fields.empty
+        assert field.get_value(QueryDict({})) == rest33.fields.empty
 
 
 class TestEmptyMultipleChoiceField(FieldValues):

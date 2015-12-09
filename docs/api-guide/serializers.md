@@ -30,7 +30,7 @@ We'll declare a serializer that we can use to serialize and deserialize data tha
 
 Declaring a serializer looks very similar to declaring a form:
 
-    from rest_framework import serializers
+    from rest33 import serializers
 
     class CommentSerializer(serializers.Serializer):
         email = serializers.EmailField()
@@ -47,7 +47,7 @@ We can now use `CommentSerializer` to serialize a comment, or list of comments. 
 
 At this point we've translated the model instance into Python native datatypes.  To finalise the serialization process we render the data into `json`.
 
-    from rest_framework.renderers import JSONRenderer
+    from rest33.renderers import JSONRenderer
 
     json = JSONRenderer().render(serializer.data)
     json
@@ -58,7 +58,7 @@ At this point we've translated the model instance into Python native datatypes. 
 Deserialization is similar. First we parse a stream into Python native datatypes...
 
     from django.utils.six import BytesIO
-    from rest_framework.parsers import JSONParser
+    from rest33.parsers import JSONParser
 
     stream = BytesIO(json)
     data = JSONParser().parse(stream)
@@ -175,7 +175,7 @@ These methods take a single argument, which is the field value that requires val
 
 Your `validate_<field_name>` methods should return the validated value or raise a `serializers.ValidationError`.  For example:
 
-    from rest_framework import serializers
+    from rest33 import serializers
 
     class BlogPostSerializer(serializers.Serializer):
         title = serializers.CharField(max_length=100)
@@ -199,7 +199,7 @@ Your `validate_<field_name>` methods should return the validated value or raise 
 
 To do any other validation that requires access to multiple fields, add a method called `.validate()` to your `Serializer` subclass.  This method takes a single argument, which is a dictionary of field values.  It should raise a `ValidationError` if necessary, or just return the validated values.  For example:
 
-    from rest_framework import serializers
+    from rest33 import serializers
 
     class EventSerializer(serializers.Serializer):
         description = serializers.CharField(max_length=100)

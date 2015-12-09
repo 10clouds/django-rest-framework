@@ -5,8 +5,8 @@ from __future__ import unicode_literals
 from django.test import TestCase
 from django.utils.encoding import python_2_unicode_compatible, smart_text
 
-from rest_framework.compat import apply_markdown
-from rest_framework.views import APIView
+from rest33.compat import apply_markdown
+from rest33.views import APIView
 
 from .description import (
     UTF8_TEST_DOCSTRING, ViewWithNonASCIICharactersInDocstring

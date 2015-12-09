@@ -8,8 +8,8 @@ source: status.py
 
 Using bare status codes in your responses isn't recommended.  REST framework includes a set of named constants that you can use to make more code more obvious and readable.
 
-    from rest_framework import status
-    from rest_framework.response import Response
+    from rest33 import status
+    from rest33.response import Response
 
     def empty_view(self):
         content = {'please move along': 'nothing to see here'}
@@ -19,8 +19,8 @@ The full set of HTTP status codes included in the `status` module is listed belo
 
 The module also includes a set of helper functions for testing if a status code is in a given range.
 
-    from rest_framework import status
-	from rest_framework.test import APITestCase
+    from rest33 import status
+	from rest33.test import APITestCase
 
 	class ExampleTestCase(APITestCase):
 	    def test_url_root(self):

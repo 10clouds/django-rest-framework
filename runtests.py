@@ -12,9 +12,9 @@ PYTEST_ARGS = {
     'fast': ['tests', '--tb=short', '-q', '-s'],
 }
 
-FLAKE8_ARGS = ['rest_framework', 'tests', '--ignore=E501']
+FLAKE8_ARGS = ['rest33', 'tests', '--ignore=E501']
 
-ISORT_ARGS = ['--recursive', '--check-only', 'rest_framework', 'tests']
+ISORT_ARGS = ['--recursive', '--check-only', 'rest33', 'tests']
 
 sys.path.append(os.path.dirname(__file__))
 
@@ -97,7 +97,7 @@ if __name__ == "__main__":
                 '--cov-report',
                 'xml',
                 '--cov',
-                'rest_framework'] + pytest_args
+                'rest33'] + pytest_args
 
         if first_arg.startswith('-'):
             # `runtests.py [flags]`

@@ -8,11 +8,11 @@ from django.http import Http404
 from django.test import TestCase, TransactionTestCase
 from django.utils.decorators import method_decorator
 
-from rest_framework import status
-from rest_framework.exceptions import APIException
-from rest_framework.response import Response
-from rest_framework.test import APIRequestFactory
-from rest_framework.views import APIView
+from rest33 import status
+from rest33.exceptions import APIException
+from rest33.response import Response
+from rest33.test import APIRequestFactory
+from rest33.views import APIView
 from tests.models import BasicModel
 
 factory = APIRequestFactory()

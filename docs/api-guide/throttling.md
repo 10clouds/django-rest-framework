@@ -27,10 +27,10 @@ If any throttle check fails an `exceptions.Throttled` exception will be raised, 
 
 The default throttling policy may be set globally, using the `DEFAULT_THROTTLE_CLASSES` and `DEFAULT_THROTTLE_RATES` settings.  For example.
 
-    REST_FRAMEWORK = {
+    REST33 = {
         'DEFAULT_THROTTLE_CLASSES': (
-            'rest_framework.throttling.AnonRateThrottle',
-            'rest_framework.throttling.UserRateThrottle'
+            'rest33.throttling.AnonRateThrottle',
+            'rest33.throttling.UserRateThrottle'
         ),
         'DEFAULT_THROTTLE_RATES': {
             'anon': '100/day',
@@ -43,9 +43,9 @@ The rate descriptions used in `DEFAULT_THROTTLE_RATES` may include `second`, `mi
 You can also set the throttling policy on a per-view or per-viewset basis,
 using the `APIView` class based views.
 
-	from rest_framework.response import Response
-    from rest_framework.throttling import UserRateThrottle
-	from rest_framework.views import APIView
+	from rest33.response import Response
+    from rest33.throttling import UserRateThrottle
+	from rest33.views import APIView
 
     class ExampleView(APIView):
         throttle_classes = (UserRateThrottle,)
@@ -123,7 +123,7 @@ For example, multiple user throttle rates could be implemented by using the foll
 
 ...and the following settings.
 
-    REST_FRAMEWORK = {
+    REST33 = {
         'DEFAULT_THROTTLE_CLASSES': (
             'example.throttles.BurstRateThrottle',
             'example.throttles.SustainedRateThrottle'
@@ -158,9 +158,9 @@ For example, given the following views...
 
 ...and the following settings.
 
-    REST_FRAMEWORK = {
+    REST33 = {
         'DEFAULT_THROTTLE_CLASSES': (
-            'rest_framework.throttling.ScopedRateThrottle',
+            'rest33.throttling.ScopedRateThrottle',
         ),
         'DEFAULT_THROTTLE_RATES': {
             'contacts': '1000/day',

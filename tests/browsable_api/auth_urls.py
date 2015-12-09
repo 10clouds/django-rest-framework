@@ -6,5 +6,5 @@ from .views import MockView
 
 urlpatterns = [
     url(r'^$', MockView.as_view()),
-    url(r'^auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^auth/', include('rest33.urls', namespace='rest33')),
 ]

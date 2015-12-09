@@ -28,18 +28,18 @@ As an example, if you are sending `json` encoded data using jQuery with the [.aj
 
 The default set of parsers may be set globally, using the `DEFAULT_PARSER_CLASSES` setting. For example, the following settings would allow only requests with `JSON` content, instead of the default of JSON or form data.
 
-    REST_FRAMEWORK = {
+    REST33 = {
         'DEFAULT_PARSER_CLASSES': (
-            'rest_framework.parsers.JSONParser',
+            'rest33.parsers.JSONParser',
         )
     }
 
 You can also set the parsers used for an individual view, or viewset,
 using the `APIView` class based views.
 
-    from rest_framework.parsers import JSONParser
-    from rest_framework.response import Response
-    from rest_framework.views import APIView
+    from rest33.parsers import JSONParser
+    from rest33.response import Response
+    from rest33.views import APIView
 
     class ExampleView(APIView):
         """
@@ -169,16 +169,16 @@ The following third party packages are also available.
 
 Install using pip.
 
-    $ pip install djangorestframework-yaml
+    $ pip install drf33-yaml
 
 Modify your REST framework settings.
 
-    REST_FRAMEWORK = {
+    REST33 = {
         'DEFAULT_PARSER_CLASSES': (
-            'rest_framework_yaml.parsers.YAMLParser',
+            'rest33_yaml.parsers.YAMLParser',
         ),
         'DEFAULT_RENDERER_CLASSES': (
-            'rest_framework_yaml.renderers.YAMLRenderer',
+            'rest33_yaml.renderers.YAMLRenderer',
         ),
     }
 
@@ -190,26 +190,26 @@ Modify your REST framework settings.
 
 Install using pip.
 
-    $ pip install djangorestframework-xml
+    $ pip install drf33-xml
 
 Modify your REST framework settings.
 
-    REST_FRAMEWORK = {
+    REST33 = {
         'DEFAULT_PARSER_CLASSES': (
-            'rest_framework_xml.parsers.XMLParser',
+            'rest33_xml.parsers.XMLParser',
         ),
         'DEFAULT_RENDERER_CLASSES': (
-            'rest_framework_xml.renderers.XMLRenderer',
+            'rest33_xml.renderers.XMLRenderer',
         ),
     }
 
 ## MessagePack
 
-[MessagePack][messagepack] is a fast, efficient binary serialization format.  [Juan Riaza][juanriaza] maintains the [djangorestframework-msgpack][djangorestframework-msgpack] package which provides MessagePack renderer and parser support for REST framework.
+[MessagePack][messagepack] is a fast, efficient binary serialization format.  [Juan Riaza][juanriaza] maintains the [drf33-msgpack][drf33-msgpack] package which provides MessagePack renderer and parser support for REST framework.
 
 ## CamelCase JSON
 
-[djangorestframework-camel-case] provides camel case JSON renderers and parsers for REST framework.  This allows serializers to use Python-style underscored field names, but be exposed in the API as Javascript-style camel case field names.  It is maintained by [Vitaly Babiy][vbabiy].
+[drf33-camel-case] provides camel case JSON renderers and parsers for REST framework.  This allows serializers to use Python-style underscored field names, but be exposed in the API as Javascript-style camel case field names.  It is maintained by [Vitaly Babiy][vbabiy].
 
 [jquery-ajax]: http://api.jquery.com/jQuery.ajax/
 [cite]: https://groups.google.com/d/topic/django-developers/dxI4qVzrBY4/discussion
@@ -220,5 +220,5 @@ Modify your REST framework settings.
 [messagepack]: https://github.com/juanriaza/django-rest-framework-msgpack
 [juanriaza]: https://github.com/juanriaza
 [vbabiy]: https://github.com/vbabiy
-[djangorestframework-msgpack]: https://github.com/juanriaza/django-rest-framework-msgpack
-[djangorestframework-camel-case]: https://github.com/vbabiy/djangorestframework-camel-case
+[drf33-msgpack]: https://github.com/juanriaza/django-rest-framework-msgpack
+[drf33-camel-case]: https://github.com/vbabiy/drf33-camel-case

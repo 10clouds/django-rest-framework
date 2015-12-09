@@ -8,9 +8,9 @@ from django.contrib.auth.models import User
 from django.shortcuts import redirect
 from django.test import TestCase
 
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
-from rest_framework.test import (
+from rest33.decorators import api_view
+from rest33.response import Response
+from rest33.test import (
     APIClient, APIRequestFactory, force_authenticate
 )
 

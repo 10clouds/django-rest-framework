@@ -1,13 +1,13 @@
 import pytest
 from django.conf.urls import include, url
 
-from rest_framework import serializers, status, versioning
-from rest_framework.decorators import APIView
-from rest_framework.relations import PKOnlyObject
-from rest_framework.response import Response
-from rest_framework.reverse import reverse
-from rest_framework.test import APIRequestFactory, APITestCase
-from rest_framework.versioning import NamespaceVersioning
+from rest33 import serializers, status, versioning
+from rest33.decorators import APIView
+from rest33.relations import PKOnlyObject
+from rest33.response import Response
+from rest33.reverse import reverse
+from rest33.test import APIRequestFactory, APITestCase
+from rest33.versioning import NamespaceVersioning
 
 from .utils import UsingURLPatterns
 

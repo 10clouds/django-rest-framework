@@ -12,14 +12,14 @@ from django.test import TestCase
 from django.utils import six
 from django.utils.translation import ugettext_lazy as _
 
-from rest_framework import permissions, serializers, status
-from rest_framework.renderers import (
+from rest33 import permissions, serializers, status
+from rest33.renderers import (
     BaseRenderer, BrowsableAPIRenderer, HTMLFormRenderer, JSONRenderer
 )
-from rest_framework.response import Response
-from rest_framework.settings import api_settings
-from rest_framework.test import APIRequestFactory
-from rest_framework.views import APIView
+from rest33.response import Response
+from rest33.settings import api_settings
+from rest33.test import APIRequestFactory
+from rest33.views import APIView
 
 DUMMYSTATUS = status.HTTP_200_OK
 DUMMYCONTENT = 'dummycontent'
@@ -111,7 +111,7 @@ urlpatterns = [
     url(r'^html$', HTMLView.as_view()),
     url(r'^html1$', HTMLView1.as_view()),
     url(r'^empty$', EmptyGETView.as_view()),
-    url(r'^api', include('rest_framework.urls', namespace='rest_framework'))
+    url(r'^api', include('rest33.urls', namespace='rest33'))
 ]
 
 

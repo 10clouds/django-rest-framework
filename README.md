@@ -43,13 +43,13 @@ There is a live example API for testing purposes, [available here][sandbox].
 
 Install using `pip`...
 
-    pip install djangorestframework
+    pip install drf33
 
-Add `'rest_framework'` to your `INSTALLED_APPS` setting.
+Add `'rest33'` to your `INSTALLED_APPS` setting.
 
     INSTALLED_APPS = (
         ...
-        'rest_framework',
+        'rest33',
     )
 
 # Example
@@ -59,7 +59,7 @@ Let's take a look at a quick example of using REST framework to build a simple m
 Startup up a new project like so...
 
     pip install django
-    pip install djangorestframework
+    pip install drf33
     django-admin.py startproject example .
     ./manage.py syncdb
 
@@ -68,7 +68,7 @@ Now edit the `example/urls.py` module in your project:
 ```python
 from django.conf.urls import url, include
 from django.contrib.auth.models import User
-from rest_framework import serializers, viewsets, routers
+from rest33 import serializers, viewsets, routers
 
 # Serializers define the API representation.
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -92,7 +92,7 @@ router.register(r'users', UserViewSet)
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     url(r'^', include(router.urls)),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    url(r'^api-auth/', include('rest33.urls', namespace='rest33'))
 ]
 ```
 
@@ -103,14 +103,14 @@ Add the following to your `settings.py` module:
 ```python
 INSTALLED_APPS = (
     ...  # Make sure to include the default installed apps here.
-    'rest_framework',
+    'rest33',
 )
 
-REST_FRAMEWORK = {
+REST33 = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+        'rest33.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
 ```
@@ -161,8 +161,8 @@ Send a description of the issue via email to [rest-framework-security@googlegrou
 [travis]: http://travis-ci.org/tomchristie/django-rest-framework?branch=master
 [coverage-status-image]: https://img.shields.io/codecov/c/github/tomchristie/django-rest-framework/master.svg
 [codecov]: http://codecov.io/github/tomchristie/django-rest-framework?branch=master
-[pypi-version]: https://img.shields.io/pypi/v/djangorestframework.svg
-[pypi]: https://pypi.python.org/pypi/djangorestframework
+[pypi-version]: https://img.shields.io/pypi/v/drf33.svg
+[pypi]: https://pypi.python.org/pypi/drf33
 [twitter]: https://twitter.com/_tomchristie
 [group]: https://groups.google.com/forum/?fromgroups#!forum/django-rest-framework
 [sandbox]: http://restframework.herokuapp.com/

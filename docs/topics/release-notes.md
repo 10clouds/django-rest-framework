@@ -30,11 +30,11 @@ Note that in line with Django's policy, any parts of the framework not mentioned
 
 To upgrade Django REST framework to the latest version, use pip:
 
-    pip install -U djangorestframework
+    pip install -U drf33
 
 You can determine your currently installed version using `pip freeze`:
 
-    pip freeze | grep djangorestframework
+    pip freeze | grep drf33
 
 ---
 
@@ -192,7 +192,7 @@ You can determine your currently installed version using `pip freeze`:
 * Use a password input for the AuthTokenSerializer. ([#2741][gh2741])
 * Fix missing anchor closing tag after next button. ([#2691][gh2691])
 * Fix `lookup_url_kwarg` handling in viewsets. ([#2685][gh2685], [#2591][gh2591])
-* Fix problem with importing `rest_framework.views` in `apps.py` ([#2678][gh2678])
+* Fix problem with importing `rest33.views` in `apps.py` ([#2678][gh2678])
 * LimitOffsetPagination raises `TypeError` if PAGE_SIZE not set ([#2667][gh2667], [#2700][gh2700])
 * German translation for `min_value` field error message references `max_value`. ([#2645][gh2645])
 * Remove `MergeDict`. ([#2640][gh2640])

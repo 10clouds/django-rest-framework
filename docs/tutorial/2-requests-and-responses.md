@@ -37,9 +37,9 @@ Okay, let's go ahead and start using these new components to write a few views.
 
 We don't need our `JSONResponse` class in `views.py` anymore, so go ahead and delete that.  Once that's done we can start refactoring our views slightly.
 
-    from rest_framework import status
-    from rest_framework.decorators import api_view
-    from rest_framework.response import Response
+    from rest33 import status
+    from rest33.decorators import api_view
+    from rest33.response import Response
     from snippets.models import Snippet
     from snippets.serializers import SnippetSerializer
 
@@ -109,7 +109,7 @@ and
 Now update the `urls.py` file slightly, to append a set of `format_suffix_patterns` in addition to the existing URLs.
 
     from django.conf.urls import url
-    from rest_framework.urlpatterns import format_suffix_patterns
+    from rest33.urlpatterns import format_suffix_patterns
     from snippets import views
 
     urlpatterns = [

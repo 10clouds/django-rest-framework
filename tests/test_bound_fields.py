@@ -1,4 +1,4 @@
-from rest_framework import serializers
+from rest33 import serializers
 
 
 class TestSimpleBoundField:
