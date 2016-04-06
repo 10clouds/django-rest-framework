@@ -83,7 +83,7 @@ setup(
     url='http://www.django-rest-framework.org',
     license='BSD',
     description='Web APIs for Django, made easy.',
-    long_description=read_md('README.md'),
+    # long_description=read_md('README.md'),
     author='Tom Christie',
     author_email='tom@tomchristie.com',  # SEE NOTE BELOW (*)
     packages=get_packages('rest_framework'),
